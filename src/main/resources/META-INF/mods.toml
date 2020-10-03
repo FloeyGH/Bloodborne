@@ -1,0 +1,29 @@
+modLoader="javafml"
+loaderVersion="[32,)"
+license="All rights reserved"
+
+[[mods]]
+modId="bloodborne"
+version="1.0.0"
+displayName="Bloodborne"
+credits=""
+authors="Floey"
+description='''
+A Minecraft Mod
+
+inspired by Bloodborne
+'''
+
+[[dependencies.examplemod]]
+    modId="forge"
+    mandatory=true
+    versionRange="[32,)"
+    ordering="NONE"
+    side="BOTH"
+
+[[dependencies.examplemod]]
+    modId="minecraft"
+    mandatory=true
+    versionRange="[1.16.3]"
+    ordering="NONE"
+    side="BOTH"
