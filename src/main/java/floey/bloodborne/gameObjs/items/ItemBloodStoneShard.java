@@ -14,9 +14,9 @@ import net.minecraftforge.api.distmarker.OnlyIn;
 import javax.annotation.Nullable;
 import java.util.List;
 
-public class ItemMadMansKnowledge extends Item {
+public class ItemBloodStoneShard extends Item {
 
-    public ItemMadMansKnowledge(Properties properties) {
+    public ItemBloodStoneShard(Properties properties) {
         super(properties);
     }
 
@@ -24,7 +24,7 @@ public class ItemMadMansKnowledge extends Item {
     @OnlyIn(Dist.CLIENT)
     public void addInformation(ItemStack stack, @Nullable World worldIn, List<ITextComponent> tooltip, ITooltipFlag flagIn) {
         if (Screen.hasShiftDown()) {
-            tooltip.add(ITextComponent.getTextComponentOrEmpty(I18n.format(BBTranslation.TOOLTIP_ITEM_MAD_MANS_KNOWLEDGE.getLang())));
+            tooltip.add(ITextComponent.getTextComponentOrEmpty(I18n.format(BBTranslation.TOOLTIP_ITEM_BLOOD_STONE_SHARD.getLang())));
         } else
             tooltip.add(ITextComponent.getTextComponentOrEmpty(I18n.format(BBTranslation.SHIFT_INFORMATION.getLang())));
     }

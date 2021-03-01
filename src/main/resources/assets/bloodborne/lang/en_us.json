@@ -1,20 +1,24 @@
 {
-  "shift.information": "Press Shift to see information",
+  "shift.information": "Press Shift for more information",
 
-  "item.tooltip.bone_ash_armor": "Bone Ash Armor",
-  "item.tooltip.cainhurst_armor": "Cainhurst Armor",
-  "item.tooltip.hunter_armor": "Hunter Armor",
+  "tooltip.item.blood_vial": "Special blood used in ministration, Restores HP.",
+  "tooltip.item.blood_stone_shard": "A solid shard that forms in coldblood.",
+  "tooltip.item.coldblood": "A thick droplet of coldblood containing Blood Echoes.",
+  "tooltip.item.great_ones_wisdom": "Fragments of the lost wisdom of the Great Ones, beings that might be described as gods.",
+  "tooltip.item.mad_mans_knowledge": "Skull of a madman touched by the wisdom of the Great Ones.",
 
-  "item.bloodborne.item_mad_mans_knowledge": "Mad Man's Knowledge",
+  "item.bloodborne.item_mad_mans_knowledge": "Madman's Knowledge",
   "item.bloodborne.item_great_ones_wisdom": "Great One's Wisdom",
+  "item.bloodborne.item_blood_stone_shard": "Blood Stone Shard",
+  "item.bloodborne.item_twin_blood_stone_shard": "Twin Blood Stone Shard",
+  "item.bloodborne.item_blood_stone_chunk": "Blood Stone Chunk",
+  "item.bloodborne.item_blood_rock": "Blood Rock",
   "item.bloodborne.item_coldblood_dew": "Coldblood Dew",
   "item.bloodborne.item_coldblood_thick": "Coldblood Thick",
   "item.bloodborne.item_coldblood_frenzied": "Coldblood Frenzied",
   "item.bloodborne.item_coldblood_kin": "Coldblood Kin",
-  "item.bloodborne.item_hunter_armor_head": "Hunter Helmet",
-  "item.bloodborne.item_hunter_armor_chest": "Hunter Chestplate",
-  "item.bloodborne.item_hunter_armor_legs": "Hunter Leggings",
-  "item.bloodborne.item_hunter_armor_feet": "Hunter Boots",
+
+  "item.bloodborne.item_blood_vial": "Blood Vial",
 
   "itemGroup.bloodborne.Creative_Tab": "Bloodborne"
 }

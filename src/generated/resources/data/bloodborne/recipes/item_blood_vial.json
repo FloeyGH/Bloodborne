@@ -1,0 +1,14 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "minecraft:glass_bottle"
+    },
+    {
+      "item": "bloodborne:item_coldblood_dew"
+    }
+  ],
+  "result": {
+    "item": "bloodborne:item_blood_vial"
+  }
+}

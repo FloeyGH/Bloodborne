@@ -1,0 +1,23 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "bloodborne:item_mad_mans_knowledge"
+    },
+    {
+      "item": "bloodborne:item_coldblood_dew"
+    },
+    {
+      "item": "bloodborne:item_coldblood_dew"
+    },
+    {
+      "item": "bloodborne:item_coldblood_dew"
+    },
+    {
+      "item": "bloodborne:item_coldblood_dew"
+    }
+  ],
+  "result": {
+    "item": "bloodborne:item_coldblood_thick"
+  }
+}

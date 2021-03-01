@@ -1,0 +1,22 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "ICI",
+    "CWC",
+    "ICI"
+  ],
+  "key": {
+    "C": {
+      "item": "bloodborne:item_coldblood_dew"
+    },
+    "W": {
+      "item": "bloodborne:item_great_ones_wisdom"
+    },
+    "I": {
+      "tag": "forge:ingots/iron"
+    }
+  },
+  "result": {
+    "item": "bloodborne:item_blood_stone_shard"
+  }
+}

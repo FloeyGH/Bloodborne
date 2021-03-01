@@ -1,15 +1,12 @@
 package floey.bloodborne.gameObjs;
 
 import floey.bloodborne.Bloodborne;
+import floey.bloodborne.gameObjs.items.ItemBloodStoneShard;
 import floey.bloodborne.gameObjs.items.ItemColdblood;
 import floey.bloodborne.gameObjs.items.ItemGreatOnesWisdom;
 import floey.bloodborne.gameObjs.items.ItemMadMansKnowledge;
-import floey.bloodborne.gameObjs.items.armor.BBArmorMaterial;
-import floey.bloodborne.gameObjs.items.armor.ItemHunterArmor;
-import floey.bloodborne.gameObjs.items.consumables.ItemAntidotePowder;
-import floey.bloodborne.gameObjs.items.consumables.ItemBiteDown;
+import floey.bloodborne.gameObjs.items.consumables.ItemBloodVial;
 import net.minecraft.block.Block;
-import net.minecraft.inventory.EquipmentSlotType;
 import net.minecraft.item.Food;
 import net.minecraft.item.Item;
 import net.minecraftforge.event.RegistryEvent;
@@ -22,23 +19,23 @@ public class ObjHandler {
 
     public static final CreativeTab CREATIVE_TAB = new CreativeTab("Creative_Tab");
 
-    //Items
-    public static final ItemMadMansKnowledge ITEM_MAD_MANS_KNOWLEDGE = new ItemMadMansKnowledge(properties());
-    public static final ItemGreatOnesWisdom ITEM_GREAT_ONES_WISDOM = new ItemGreatOnesWisdom(properties());
-    
-    public static final ItemColdblood ITEM_COLDBLOOD_DEW = new ItemColdblood(properties());
-    public static final ItemColdblood ITEM_COLDBLOOD_THICK = new ItemColdblood(properties());
-    public static final ItemColdblood ITEM_COLDBLOOD_FRENZIED = new ItemColdblood(properties());
-    public static final ItemColdblood ITEM_COLDBLOOD_KIN = new ItemColdblood(properties());
+    //Upgrade Material
+    public static final ItemColdblood ITEM_COLDBLOOD_DEW = new ItemColdblood(propertiesBase());
+    public static final ItemColdblood ITEM_COLDBLOOD_THICK = new ItemColdblood(propertiesBase());
+    public static final ItemColdblood ITEM_COLDBLOOD_FRENZIED = new ItemColdblood(propertiesBase());
+    public static final ItemColdblood ITEM_COLDBLOOD_KIN = new ItemColdblood(propertiesBase());
 
-    public static final ItemBiteDown ITEM_BITE_DOWN = new ItemBiteDown(properties().food(new Food.Builder().setAlwaysEdible().build()));
-    public static final ItemAntidotePowder ITEM_ANTIDOTE_POWDER = new ItemAntidotePowder(properties().food(new Food.Builder().setAlwaysEdible().build()));
+    public static final ItemBloodStoneShard ITEM_BLOOD_STONE_SHARD = new ItemBloodStoneShard(propertiesBase());
+    public static final ItemBloodStoneShard ITEM_TWIN_BLOOD_STONE_SHARD = new ItemBloodStoneShard(propertiesBase());
+    public static final ItemBloodStoneShard ITEM_BLOOD_STONE_CHUNK = new ItemBloodStoneShard(propertiesBase());
+    public static final ItemBloodStoneShard ITEM_BLOOD_ROCK = new ItemBloodStoneShard(propertiesBase());
 
-    //Armor
-    public static final ItemHunterArmor ITEM_HUNTER_ARMOR_HEAD = new ItemHunterArmor(BBArmorMaterial.HUNTER, EquipmentSlotType.HEAD, new Item.Properties().group(CREATIVE_TAB).func_234689_a_());
-    public static final ItemHunterArmor ITEM_HUNTER_ARMOR_CHEST = new ItemHunterArmor(BBArmorMaterial.HUNTER, EquipmentSlotType.CHEST, new Item.Properties().group(CREATIVE_TAB).func_234689_a_());
-    public static final ItemHunterArmor ITEM_HUNTER_ARMOR_LEGS = new ItemHunterArmor(BBArmorMaterial.HUNTER, EquipmentSlotType.LEGS, new Item.Properties().group(CREATIVE_TAB).func_234689_a_());
-    public static final ItemHunterArmor ITEM_HUNTER_ARMOR_FEET = new ItemHunterArmor(BBArmorMaterial.HUNTER, EquipmentSlotType.FEET, new Item.Properties().group(CREATIVE_TAB).func_234689_a_());
+    public static final ItemMadMansKnowledge ITEM_MAD_MANS_KNOWLEDGE = new ItemMadMansKnowledge(propertiesNoStack().maxDamage(256));
+    public static final ItemGreatOnesWisdom ITEM_GREAT_ONES_WISDOM = new ItemGreatOnesWisdom(propertiesNoStack().maxDamage(64));
+
+
+    //Consumables Items
+    public static final ItemBloodVial ITEM_BLOOD_VIAL = new ItemBloodVial(propertiesBase().food(new Food.Builder().setAlwaysEdible().build()));
 
     @SubscribeEvent
     public static void itemRegister(RegistryEvent.Register<Item> event) {
@@ -46,17 +43,15 @@ public class ObjHandler {
 
         registry.register(ITEM_MAD_MANS_KNOWLEDGE.setRegistryName("item_mad_mans_knowledge"));
         registry.register(ITEM_GREAT_ONES_WISDOM.setRegistryName("item_great_ones_wisdom"));
+        registry.register(ITEM_BLOOD_STONE_SHARD.setRegistryName("item_blood_stone_shard"));
+        registry.register(ITEM_TWIN_BLOOD_STONE_SHARD.setRegistryName("item_twin_blood_stone_shard"));
+        registry.register(ITEM_BLOOD_STONE_CHUNK.setRegistryName("item_blood_stone_chunk"));
+        registry.register(ITEM_BLOOD_ROCK.setRegistryName("item_blood_rock"));
         registry.register(ITEM_COLDBLOOD_DEW.setRegistryName("item_coldblood_dew"));
         registry.register(ITEM_COLDBLOOD_THICK.setRegistryName("item_coldblood_thick"));
         registry.register(ITEM_COLDBLOOD_FRENZIED.setRegistryName("item_coldblood_frenzied"));
         registry.register(ITEM_COLDBLOOD_KIN.setRegistryName("item_coldblood_kin"));
-        registry.register(ITEM_BITE_DOWN.setRegistryName("item_bite_down"));
-        registry.register(ITEM_ANTIDOTE_POWDER.setRegistryName("item_antidote_powder"));
-
-        registry.register(ITEM_HUNTER_ARMOR_HEAD.setRegistryName("item_hunter_armor_head"));
-        registry.register(ITEM_HUNTER_ARMOR_CHEST.setRegistryName("item_hunter_armor_chest"));
-        registry.register(ITEM_HUNTER_ARMOR_LEGS.setRegistryName("item_hunter_armor_legs"));
-        registry.register(ITEM_HUNTER_ARMOR_FEET.setRegistryName("item_hunter_armor_feet"));
+        registry.register(ITEM_BLOOD_VIAL.setRegistryName("item_blood_vial"));
     }
 
     @SubscribeEvent
@@ -65,7 +60,11 @@ public class ObjHandler {
 
     }
 
-    private static Item.Properties properties() {
+    private static Item.Properties propertiesBase() {
         return new Item.Properties().group(CREATIVE_TAB);
+    }
+
+    private static Item.Properties propertiesNoStack() {
+        return new Item.Properties().group(CREATIVE_TAB).maxStackSize(1);
     }
 }

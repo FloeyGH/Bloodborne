@@ -1,4 +1,4 @@
-package floey.bloodborne.gameObjs.items.tools;
+package floey.bloodborne.gameObjs.items.weapons;
 
 import net.minecraft.item.IItemTier;
 import net.minecraft.item.crafting.Ingredient;
@@ -8,9 +8,7 @@ import java.util.function.Supplier;
 
 public enum BBItemTier implements IItemTier {
 
-    BONEASH(4, 0, 9.0F, 4.0F, 18, null),
-    HUNTER(4, 0, 9.0F, 4.0F, 18, null),
-    CAINHURST(4, 0, 9.0F, 4.0F, 18, null);
+    SAWCLEAVER(4, 0, 9.0F, 4.0F, 18, null);
 
     private final int harvestLevel;
     private final int maxUses;

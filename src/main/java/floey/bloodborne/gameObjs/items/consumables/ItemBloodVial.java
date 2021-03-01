@@ -8,6 +8,8 @@ import net.minecraft.entity.LivingEntity;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.UseAction;
+import net.minecraft.particles.ParticleTypes;
+import net.minecraft.util.SoundCategory;
 import net.minecraft.util.SoundEvent;
 import net.minecraft.util.SoundEvents;
 import net.minecraft.util.text.ITextComponent;
@@ -18,24 +20,30 @@ import net.minecraftforge.api.distmarker.OnlyIn;
 import javax.annotation.Nullable;
 import java.util.List;
 
-public class ItemBiteDown extends Item {
+public class ItemBloodVial extends Item {
 
-    public ItemBiteDown(Properties properties) {
+    private float healAmount;
+
+    public ItemBloodVial(Properties properties) {
         super(properties);
     }
 
     @Override
     public ItemStack onItemUseFinish(ItemStack stack, World worldIn, LivingEntity entityLiving) {
         ItemStack itemstack = super.onItemUseFinish(stack, worldIn, entityLiving);
+        healAmount = entityLiving.getMaxHealth() * 0.3F;
+
         if (!worldIn.isRemote) {
-            entityLiving.onKillCommand();
+            entityLiving.heal(healAmount);
+            worldIn.playSound(null, entityLiving.getPosX(), entityLiving.getPosY(), entityLiving.getPosZ(), SoundEvents.ITEM_BOTTLE_EMPTY, SoundCategory.PLAYERS, 0.5F, 1F);
+            entityLiving.world.addParticle(ParticleTypes.INSTANT_EFFECT, entityLiving.getPosX(), entityLiving.getPosY(), entityLiving.getPosZ(), 2D, 2D, 2D);
         }
         return itemstack;
     }
 
     @Override
     public SoundEvent getDrinkSound() {
-        return SoundEvents.ENTITY_GENERIC_EAT;
+        return SoundEvents.ENTITY_GENERIC_DRINK;
     }
 
     @Override
@@ -45,15 +53,15 @@ public class ItemBiteDown extends Item {
 
     @Override
     public int getUseDuration(ItemStack stack) {
-        return 32;
+        return 12;
     }
 
     @Override
     @OnlyIn(Dist.CLIENT)
     public void addInformation(ItemStack stack, @Nullable World worldIn, List<ITextComponent> tooltip, ITooltipFlag flagIn) {
-        if (Screen.func_231173_s_()) {
-            tooltip.add(ITextComponent.func_244388_a(I18n.format(BBTranslation.TOOLTIP_ITEM_BITE_DOWN.getLang())));
+        if (Screen.hasShiftDown()) {
+            tooltip.add(ITextComponent.getTextComponentOrEmpty(I18n.format(BBTranslation.TOOLTIP_ITEM_BLOOD_VIAL.getLang())));
         } else
-            tooltip.add(ITextComponent.func_244388_a(I18n.format(BBTranslation.SHIFT_INFORMATION.getLang())));
+            tooltip.add(ITextComponent.getTextComponentOrEmpty(I18n.format(BBTranslation.SHIFT_INFORMATION.getLang())));
     }
 }

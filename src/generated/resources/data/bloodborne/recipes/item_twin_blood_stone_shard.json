@@ -1,0 +1,22 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "BCB",
+    "CWC",
+    "BCB"
+  ],
+  "key": {
+    "C": {
+      "item": "bloodborne:item_coldblood_thick"
+    },
+    "W": {
+      "item": "bloodborne:item_great_ones_wisdom"
+    },
+    "B": {
+      "item": "bloodborne:item_blood_stone_shard"
+    }
+  },
+  "result": {
+    "item": "bloodborne:item_twin_blood_stone_shard"
+  }
+}
