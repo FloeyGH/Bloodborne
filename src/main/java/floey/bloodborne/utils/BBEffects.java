@@ -1,16 +1,17 @@
 package floey.bloodborne.utils;
 
-import net.minecraft.entity.LivingEntity;
+import floey.bloodborne.Bloodborne;
+import floey.bloodborne.utils.effects.BeasthoodEffect;
 import net.minecraft.potion.Effect;
-import net.minecraft.potion.EffectInstance;
+import net.minecraftforge.fml.RegistryObject;
+import net.minecraftforge.fml.common.Mod;
+import net.minecraftforge.registries.DeferredRegister;
+import net.minecraftforge.registries.ForgeRegistries;
 
+@Mod.EventBusSubscriber(modid = Bloodborne.MODID, bus = Mod.EventBusSubscriber.Bus.MOD)
 public class BBEffects {
 
-    public static void addEffect(LivingEntity living, Effect effect, int duration, int amplifier) {
-        EffectInstance effectInstance = living.getActivePotionEffect(effect);
-        if (effectInstance == null || (effectInstance.getAmplifier() == 0 && effectInstance.getDuration() == 1)) {
-            EffectInstance newEffect = new EffectInstance(effect, duration, amplifier, true, true);
-            living.addPotionEffect(newEffect);
-        }
-    }
+    public static final DeferredRegister<Effect> EFFECTS = DeferredRegister.create(ForgeRegistries.POTIONS, Bloodborne.MODID);
+
+    public static final RegistryObject<Effect> BEASTHOOD = EFFECTS.register("beasthood", BeasthoodEffect::new);
 }

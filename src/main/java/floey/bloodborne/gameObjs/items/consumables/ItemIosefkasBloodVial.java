@@ -1,5 +1,6 @@
 package floey.bloodborne.gameObjs.items.consumables;
 
+import floey.bloodborne.utils.BBEffects;
 import floey.bloodborne.utils.BBTranslation;
 import net.minecraft.client.gui.screen.Screen;
 import net.minecraft.client.resources.I18n;
@@ -10,6 +11,7 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
 import net.minecraft.item.UseAction;
+import net.minecraft.potion.EffectInstance;
 import net.minecraft.stats.Stats;
 import net.minecraft.util.*;
 import net.minecraft.util.text.ITextComponent;
@@ -20,11 +22,11 @@ import net.minecraftforge.api.distmarker.OnlyIn;
 import javax.annotation.Nullable;
 import java.util.List;
 
-public class ItemBloodVial extends Item {
+public class ItemIosefkasBloodVial extends Item {
 
     private float healAmount;
 
-    public ItemBloodVial(Properties properties) {
+    public ItemIosefkasBloodVial(Properties properties) {
         super(properties);
     }
 
@@ -32,11 +34,12 @@ public class ItemBloodVial extends Item {
     public ItemStack onItemUseFinish(ItemStack stack, World worldIn, LivingEntity entityLiving) {
         ItemStack itemstack = super.onItemUseFinish(stack, worldIn, entityLiving);
         PlayerEntity playerEntity = entityLiving instanceof PlayerEntity ? (PlayerEntity)entityLiving : null;
-        healAmount = playerEntity.getMaxHealth() * 0.3F;
+        healAmount = playerEntity.getMaxHealth();
 
         if (!worldIn.isRemote) {
             playerEntity.heal(healAmount);
         }
+
         if (playerEntity != null) {
             playerEntity.addStat(Stats.ITEM_USED.get(this));
             if (!playerEntity.abilities.isCreativeMode) {
@@ -57,11 +60,6 @@ public class ItemBloodVial extends Item {
     }
 
     @Override
-    public ActionResult<ItemStack> onItemRightClick(World worldIn, PlayerEntity playerIn, Hand handIn) {
-        return DrinkHelper.startDrinking(worldIn, playerIn, handIn);
-    }
-
-    @Override
     public SoundEvent getDrinkSound() {
         return SoundEvents.ENTITY_GENERIC_DRINK;
     }
@@ -77,10 +75,15 @@ public class ItemBloodVial extends Item {
     }
 
     @Override
+    public ActionResult<ItemStack> onItemRightClick(World worldIn, PlayerEntity playerIn, Hand handIn) {
+        return DrinkHelper.startDrinking(worldIn, playerIn, handIn);
+    }
+
+    @Override
     @OnlyIn(Dist.CLIENT)
     public void addInformation(ItemStack stack, @Nullable World worldIn, List<ITextComponent> tooltip, ITooltipFlag flagIn) {
         if (Screen.hasShiftDown()) {
-            tooltip.add(ITextComponent.getTextComponentOrEmpty(I18n.format(BBTranslation.TOOLTIP_ITEM_BLOOD_VIAL.getLang())));
+            tooltip.add(ITextComponent.getTextComponentOrEmpty(I18n.format(BBTranslation.TOOLTIP_ITEM_IOSEFKAS_BLOOD_VIAL.getLang())));
         } else
             tooltip.add(ITextComponent.getTextComponentOrEmpty(I18n.format(BBTranslation.SHIFT_INFORMATION.getLang())));
     }

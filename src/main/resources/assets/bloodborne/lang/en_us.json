@@ -2,6 +2,8 @@
   "shift.information": "Press Shift for more information",
 
   "tooltip.item.blood_vial": "Special blood used in ministration, Restores HP.",
+  "tooltip.item.iosefkas_blood_vial": "This refined blood, highly invigorating, restores a larger amount of HP.",
+  "tooltip.item.beast_blood_pellet": "Large medicinal pellets, supposedly formed of coagulated beast blood. Banned by the Healing Church due to their unclear origin. Grants a spurt of beasthood.",
   "tooltip.item.blood_stone_shard": "A solid shard that forms in coldblood.",
   "tooltip.item.coldblood": "A thick droplet of coldblood containing Blood Echoes.",
   "tooltip.item.great_ones_wisdom": "Fragments of the lost wisdom of the Great Ones, beings that might be described as gods.",
@@ -19,6 +21,8 @@
   "item.bloodborne.item_coldblood_kin": "Coldblood Kin",
 
   "item.bloodborne.item_blood_vial": "Blood Vial",
+  "item.bloodborne.item_beast_blood_pellet": "Beast Blood Pellet",
+  "item.bloodborne.item_iosefkas_blood_vial": "Iosefka's Blood Vial",
 
   "itemGroup.bloodborne.Creative_Tab": "Bloodborne"
 }

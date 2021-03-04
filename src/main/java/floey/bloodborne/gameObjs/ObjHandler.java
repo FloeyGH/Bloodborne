@@ -1,14 +1,14 @@
 package floey.bloodborne.gameObjs;
 
 import floey.bloodborne.Bloodborne;
-import floey.bloodborne.gameObjs.items.ItemBloodStoneShard;
-import floey.bloodborne.gameObjs.items.ItemColdblood;
-import floey.bloodborne.gameObjs.items.ItemGreatOnesWisdom;
-import floey.bloodborne.gameObjs.items.ItemMadMansKnowledge;
+import floey.bloodborne.gameObjs.items.*;
+import floey.bloodborne.gameObjs.items.consumables.ItemBeastBloodPellet;
 import floey.bloodborne.gameObjs.items.consumables.ItemBloodVial;
+import floey.bloodborne.gameObjs.items.consumables.ItemIosefkasBloodVial;
 import net.minecraft.block.Block;
 import net.minecraft.item.Food;
 import net.minecraft.item.Item;
+import net.minecraft.potion.EffectInstance;
 import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
@@ -35,7 +35,10 @@ public class ObjHandler {
 
 
     //Consumables Items
-    public static final ItemBloodVial ITEM_BLOOD_VIAL = new ItemBloodVial(propertiesBase().food(new Food.Builder().setAlwaysEdible().build()));
+    public static final ItemBloodVial ITEM_BLOOD_VIAL = new ItemBloodVial(propertiesBase());
+    public static final ItemIosefkasBloodVial ITEM_IOSEFKAS_BLOOD_VIAL = new ItemIosefkasBloodVial(propertiesBase());
+    public static final ItemBeastBloodPellet ITEM_BEAST_BLOOD_PELLET = new ItemBeastBloodPellet(propertiesBase().food(new Food.Builder().setAlwaysEdible().build()));
+    public static final ItemBoldHuntersMark ITEM_BOLD_HUNTERS_MARK = new ItemBoldHuntersMark(propertiesNoStack());
 
     @SubscribeEvent
     public static void itemRegister(RegistryEvent.Register<Item> event) {
@@ -52,6 +55,9 @@ public class ObjHandler {
         registry.register(ITEM_COLDBLOOD_FRENZIED.setRegistryName("item_coldblood_frenzied"));
         registry.register(ITEM_COLDBLOOD_KIN.setRegistryName("item_coldblood_kin"));
         registry.register(ITEM_BLOOD_VIAL.setRegistryName("item_blood_vial"));
+        registry.register(ITEM_IOSEFKAS_BLOOD_VIAL.setRegistryName("item_iosefkas_blood_vial"));
+        registry.register(ITEM_BEAST_BLOOD_PELLET.setRegistryName("item_beast_blood_pellet"));
+        registry.register(ITEM_BOLD_HUNTERS_MARK.setRegistryName("item_bold_hunters_mark"));
     }
 
     @SubscribeEvent
