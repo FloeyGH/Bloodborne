@@ -21,7 +21,6 @@ public abstract class ItemBloodborneWeapon extends SwordItem {
 
     @Override
     public ActionResult<ItemStack> onItemRightClick(World worldIn, PlayerEntity playerIn, Hand handIn) {
-
         if (!worldIn.isRemote) {
             playerIn.setHeldItem(handIn, new ItemStack(setTransformation()));
             playerIn.getCooldownTracker().setCooldown(setTransformation(), 20);

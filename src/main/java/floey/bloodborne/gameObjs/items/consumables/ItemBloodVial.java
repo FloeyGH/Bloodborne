@@ -13,6 +13,8 @@ import net.minecraft.item.UseAction;
 import net.minecraft.stats.Stats;
 import net.minecraft.util.*;
 import net.minecraft.util.text.ITextComponent;
+import net.minecraft.util.text.TextFormatting;
+import net.minecraft.util.text.TranslationTextComponent;
 import net.minecraft.world.World;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
@@ -30,31 +32,27 @@ public class ItemBloodVial extends Item {
 
     @Override
     public ItemStack onItemUseFinish(ItemStack stack, World worldIn, LivingEntity entityLiving) {
-        ItemStack itemstack = super.onItemUseFinish(stack, worldIn, entityLiving);
         PlayerEntity playerEntity = entityLiving instanceof PlayerEntity ? (PlayerEntity)entityLiving : null;
         healAmount = playerEntity.getMaxHealth() * 0.3F;
 
         if (!worldIn.isRemote) {
             playerEntity.heal(healAmount);
         }
-
         if (playerEntity != null) {
             playerEntity.addStat(Stats.ITEM_USED.get(this));
             if (!playerEntity.abilities.isCreativeMode) {
                 stack.shrink(1);
             }
         }
-
         if (playerEntity == null || !playerEntity.abilities.isCreativeMode) {
             if (stack.isEmpty()) {
                 return new ItemStack(Items.GLASS_BOTTLE);
             }
-
             if (playerEntity != null) {
                 playerEntity.inventory.addItemStackToInventory(new ItemStack(Items.GLASS_BOTTLE));
             }
         }
-        return itemstack;
+        return stack;
     }
 
     @Override
@@ -81,8 +79,8 @@ public class ItemBloodVial extends Item {
     @OnlyIn(Dist.CLIENT)
     public void addInformation(ItemStack stack, @Nullable World worldIn, List<ITextComponent> tooltip, ITooltipFlag flagIn) {
         if (Screen.hasShiftDown()) {
-            tooltip.add(ITextComponent.getTextComponentOrEmpty(I18n.format(BloodborneTranslation.TOOLTIP_ITEM_BLOOD_VIAL.getLang())));
+            tooltip.add(new TranslationTextComponent(BloodborneTranslation.TOOLTIP_ITEM_BLOOD_VIAL.getLang()).mergeStyle(TextFormatting.DARK_GRAY));
         } else
-            tooltip.add(ITextComponent.getTextComponentOrEmpty(I18n.format(BloodborneTranslation.SHIFT_INFORMATION.getLang())));
+            tooltip.add(new TranslationTextComponent(BloodborneTranslation.SHIFT_INFORMATION.getLang()).mergeStyle(TextFormatting.DARK_GRAY));
     }
 }

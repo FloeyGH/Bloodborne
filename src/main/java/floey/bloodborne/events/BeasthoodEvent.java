@@ -12,7 +12,6 @@ public class BeasthoodEvent {
 
     @SubscribeEvent
     public static void attackEntityEvent(AttackEntityEvent event) {
-
         switch(event.getEntityLiving().getActivePotionEffect(BloodborneEffects.BEASTHOOD.get()).getEffectInstance().getAmplifier()) {
             case 0:
                 event.getEntityLiving().addPotionEffect(new EffectInstance(BloodborneEffects.BEASTHOOD.get(), 900, 1));

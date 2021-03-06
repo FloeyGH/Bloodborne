@@ -13,6 +13,8 @@ import net.minecraft.potion.EffectInstance;
 import net.minecraft.util.SoundEvent;
 import net.minecraft.util.SoundEvents;
 import net.minecraft.util.text.ITextComponent;
+import net.minecraft.util.text.TextFormatting;
+import net.minecraft.util.text.TranslationTextComponent;
 import net.minecraft.world.World;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
@@ -28,12 +30,10 @@ public class ItemBeastBloodPellet extends Item {
 
     @Override
     public ItemStack onItemUseFinish(ItemStack stack, World worldIn, LivingEntity entityLiving) {
-        ItemStack itemstack = super.onItemUseFinish(stack, worldIn, entityLiving);
-
         if (!worldIn.isRemote) {
             entityLiving.addPotionEffect(new EffectInstance(BloodborneEffects.BEASTHOOD.get(), 900, 0));
         }
-        return itemstack;
+        return stack;
     }
 
     @Override
@@ -55,8 +55,8 @@ public class ItemBeastBloodPellet extends Item {
     @OnlyIn(Dist.CLIENT)
     public void addInformation(ItemStack stack, @Nullable World worldIn, List<ITextComponent> tooltip, ITooltipFlag flagIn) {
         if (Screen.hasShiftDown()) {
-            tooltip.add(ITextComponent.getTextComponentOrEmpty(I18n.format(BloodborneTranslation.TOOLTIP_ITEM_BEAST_BLOOD_PELLET.getLang())));
+            tooltip.add(new TranslationTextComponent(BloodborneTranslation.TOOLTIP_ITEM_BEAST_BLOOD_PELLET.getLang()).mergeStyle(TextFormatting.DARK_GRAY));
         } else
-            tooltip.add(ITextComponent.getTextComponentOrEmpty(I18n.format(BloodborneTranslation.SHIFT_INFORMATION.getLang())));
+            tooltip.add(new TranslationTextComponent(BloodborneTranslation.SHIFT_INFORMATION.getLang()).mergeStyle(TextFormatting.DARK_GRAY));
     }
 }
