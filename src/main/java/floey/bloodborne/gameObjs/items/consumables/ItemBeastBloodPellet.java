@@ -1,7 +1,7 @@
 package floey.bloodborne.gameObjs.items.consumables;
 
-import floey.bloodborne.utils.BBEffects;
-import floey.bloodborne.utils.BBTranslation;
+import floey.bloodborne.utils.BloodborneEffects;
+import floey.bloodborne.utils.BloodborneTranslation;
 import net.minecraft.client.gui.screen.Screen;
 import net.minecraft.client.resources.I18n;
 import net.minecraft.client.util.ITooltipFlag;
@@ -31,7 +31,7 @@ public class ItemBeastBloodPellet extends Item {
         ItemStack itemstack = super.onItemUseFinish(stack, worldIn, entityLiving);
 
         if (!worldIn.isRemote) {
-            entityLiving.addPotionEffect(new EffectInstance(BBEffects.BEASTHOOD.get(), 900, 0));
+            entityLiving.addPotionEffect(new EffectInstance(BloodborneEffects.BEASTHOOD.get(), 900, 0));
         }
         return itemstack;
     }
@@ -55,8 +55,8 @@ public class ItemBeastBloodPellet extends Item {
     @OnlyIn(Dist.CLIENT)
     public void addInformation(ItemStack stack, @Nullable World worldIn, List<ITextComponent> tooltip, ITooltipFlag flagIn) {
         if (Screen.hasShiftDown()) {
-            tooltip.add(ITextComponent.getTextComponentOrEmpty(I18n.format(BBTranslation.TOOLTIP_ITEM_BEAST_BLOOD_PELLET.getLang())));
+            tooltip.add(ITextComponent.getTextComponentOrEmpty(I18n.format(BloodborneTranslation.TOOLTIP_ITEM_BEAST_BLOOD_PELLET.getLang())));
         } else
-            tooltip.add(ITextComponent.getTextComponentOrEmpty(I18n.format(BBTranslation.SHIFT_INFORMATION.getLang())));
+            tooltip.add(ITextComponent.getTextComponentOrEmpty(I18n.format(BloodborneTranslation.SHIFT_INFORMATION.getLang())));
     }
 }

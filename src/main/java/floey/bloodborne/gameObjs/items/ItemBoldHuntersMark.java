@@ -1,6 +1,6 @@
 package floey.bloodborne.gameObjs.items;
 
-import floey.bloodborne.utils.BBTranslation;
+import floey.bloodborne.utils.BloodborneTranslation;
 import net.minecraft.client.gui.screen.Screen;
 import net.minecraft.client.resources.I18n;
 import net.minecraft.client.util.ITooltipFlag;
@@ -28,7 +28,23 @@ public class ItemBoldHuntersMark extends Item {
     @Override
     public void onPlayerStoppedUsing(ItemStack stack, World worldIn, LivingEntity entityLiving, int timeLeft) {
         PlayerEntity playerEntity = (PlayerEntity) entityLiving;
-        playerEntity.heal(20);
+        int i = this.getUseDuration(stack) - timeLeft;
+
+        //WIP
+        /*if (!worldIn.isRemote) {
+            if (i >= 25) {
+                BlockPos blockPos = playerEntity.getBedPosition().get();
+                blockPos = playerEntity.getBedPosition().get();
+                playerEntity.teleportKeepLoaded(blockPos.getX(), blockPos.getY(), blockPos.getZ());
+            }
+
+            if (playerEntity != null) {
+                playerEntity.addStat(Stats.ITEM_USED.get(this));
+                if (!playerEntity.abilities.isCreativeMode) {
+                    stack.shrink(1);
+                }
+            }
+        }*/
     }
 
     @Override
@@ -52,8 +68,8 @@ public class ItemBoldHuntersMark extends Item {
     @OnlyIn(Dist.CLIENT)
     public void addInformation(ItemStack stack, @Nullable World worldIn, List<ITextComponent> tooltip, ITooltipFlag flagIn) {
         if (Screen.hasShiftDown()) {
-            tooltip.add(ITextComponent.getTextComponentOrEmpty(I18n.format(BBTranslation.TOOLTIP_ITEM_BOLD_HUNTERS_MARK.getLang())));
+            tooltip.add(ITextComponent.getTextComponentOrEmpty(I18n.format(BloodborneTranslation.TOOLTIP_ITEM_BOLD_HUNTERS_MARK.getLang())));
         } else
-            tooltip.add(ITextComponent.getTextComponentOrEmpty(I18n.format(BBTranslation.SHIFT_INFORMATION.getLang())));
+            tooltip.add(ITextComponent.getTextComponentOrEmpty(I18n.format(BloodborneTranslation.SHIFT_INFORMATION.getLang())));
     }
 }

@@ -1,6 +1,6 @@
 package floey.bloodborne;
 
-import floey.bloodborne.utils.BBEffects;
+import floey.bloodborne.utils.BloodborneEffects;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
@@ -13,7 +13,7 @@ public class Bloodborne {
 
     public Bloodborne() {
         FMLJavaModLoadingContext.get().getModEventBus().addListener(this::commonSetup);
-        BBEffects.EFFECTS.register(FMLJavaModLoadingContext.get().getModEventBus());
+        BloodborneEffects.EFFECTS.register(FMLJavaModLoadingContext.get().getModEventBus());
     }
 
     @SubscribeEvent

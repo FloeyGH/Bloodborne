@@ -11,7 +11,7 @@ import net.minecraftforge.api.distmarker.OnlyIn;
 
 import java.util.function.Supplier;
 
-public enum BBArmorMaterial implements IArmorMaterial {
+public enum BloodborneArmorMaterial implements IArmorMaterial {
 
     HUNTER("hunterarmor", 0, new int[]{3, 6, 8, 3}, 0, SoundEvents.ITEM_ARMOR_EQUIP_LEATHER, 3.0F, 0F, null);
 
@@ -25,7 +25,7 @@ public enum BBArmorMaterial implements IArmorMaterial {
     private final float knockbackresistance;
     private final LazyValue<Ingredient> repairMaterial;
 
-    BBArmorMaterial(String name, int maxDamageFactor, int[] damageReductionAmountArray, int enchantability, SoundEvent soundEvent, float toughness, float knockbackresistance, Supplier<Ingredient> repairMaterial) {
+    BloodborneArmorMaterial(String name, int maxDamageFactor, int[] damageReductionAmountArray, int enchantability, SoundEvent soundEvent, float toughness, float knockbackresistance, Supplier<Ingredient> repairMaterial) {
         this.name = name;
         this.maxDamageFactor = maxDamageFactor;
         this.damageReductionAmountArray = damageReductionAmountArray;

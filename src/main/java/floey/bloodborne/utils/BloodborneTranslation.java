@@ -1,6 +1,6 @@
 package floey.bloodborne.utils;
 
-public enum BBTranslation {
+public enum BloodborneTranslation {
 
     SHIFT_INFORMATION("shift.information"),
 
@@ -16,7 +16,7 @@ public enum BBTranslation {
 
     private String lang;
 
-    BBTranslation(String lang) {
+    BloodborneTranslation(String lang) {
         this.lang = lang;
     }
 

@@ -1,6 +1,6 @@
 package floey.bloodborne.gameObjs.items.consumables;
 
-import floey.bloodborne.utils.BBTranslation;
+import floey.bloodborne.utils.BloodborneTranslation;
 import net.minecraft.client.gui.screen.Screen;
 import net.minecraft.client.resources.I18n;
 import net.minecraft.client.util.ITooltipFlag;
@@ -37,6 +37,7 @@ public class ItemBloodVial extends Item {
         if (!worldIn.isRemote) {
             playerEntity.heal(healAmount);
         }
+
         if (playerEntity != null) {
             playerEntity.addStat(Stats.ITEM_USED.get(this));
             if (!playerEntity.abilities.isCreativeMode) {
@@ -80,8 +81,8 @@ public class ItemBloodVial extends Item {
     @OnlyIn(Dist.CLIENT)
     public void addInformation(ItemStack stack, @Nullable World worldIn, List<ITextComponent> tooltip, ITooltipFlag flagIn) {
         if (Screen.hasShiftDown()) {
-            tooltip.add(ITextComponent.getTextComponentOrEmpty(I18n.format(BBTranslation.TOOLTIP_ITEM_BLOOD_VIAL.getLang())));
+            tooltip.add(ITextComponent.getTextComponentOrEmpty(I18n.format(BloodborneTranslation.TOOLTIP_ITEM_BLOOD_VIAL.getLang())));
         } else
-            tooltip.add(ITextComponent.getTextComponentOrEmpty(I18n.format(BBTranslation.SHIFT_INFORMATION.getLang())));
+            tooltip.add(ITextComponent.getTextComponentOrEmpty(I18n.format(BloodborneTranslation.SHIFT_INFORMATION.getLang())));
     }
 }

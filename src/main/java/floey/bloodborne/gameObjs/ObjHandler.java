@@ -5,10 +5,10 @@ import floey.bloodborne.gameObjs.items.*;
 import floey.bloodborne.gameObjs.items.consumables.ItemBeastBloodPellet;
 import floey.bloodborne.gameObjs.items.consumables.ItemBloodVial;
 import floey.bloodborne.gameObjs.items.consumables.ItemIosefkasBloodVial;
+import floey.bloodborne.gameObjs.items.weapons.*;
 import net.minecraft.block.Block;
 import net.minecraft.item.Food;
 import net.minecraft.item.Item;
-import net.minecraft.potion.EffectInstance;
 import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
@@ -40,6 +40,12 @@ public class ObjHandler {
     public static final ItemBeastBloodPellet ITEM_BEAST_BLOOD_PELLET = new ItemBeastBloodPellet(propertiesBase().food(new Food.Builder().setAlwaysEdible().build()));
     public static final ItemBoldHuntersMark ITEM_BOLD_HUNTERS_MARK = new ItemBoldHuntersMark(propertiesNoStack());
 
+    //Weapons
+    public static final ItemSawCleaver ITEM_SAW_CLEAVER = new ItemSawCleaver(BloodborneItemTier.SAWCLEAVER, 1, -2, propertiesBase());
+    public static final ItemSawCleaverTransformed ITEM_SAW_CLEAVER_TRANSFORMED = new ItemSawCleaverTransformed(BloodborneItemTier.SAWCLEAVER, 1, -2, propertiesBase());
+    public static final ItemHunterAxe ITEM_HUNTER_AXE = new ItemHunterAxe(BloodborneItemTier.SAWCLEAVER, 1, -2, propertiesBase());
+    public static final ItemHunterAxeTransformed ITEM_HUNTER_AXE_TRANSFORMED = new ItemHunterAxeTransformed(BloodborneItemTier.SAWCLEAVER, 1, -2, propertiesBase());
+
     @SubscribeEvent
     public static void itemRegister(RegistryEvent.Register<Item> event) {
         final IForgeRegistry<Item> registry = event.getRegistry();
@@ -58,6 +64,10 @@ public class ObjHandler {
         registry.register(ITEM_IOSEFKAS_BLOOD_VIAL.setRegistryName("item_iosefkas_blood_vial"));
         registry.register(ITEM_BEAST_BLOOD_PELLET.setRegistryName("item_beast_blood_pellet"));
         registry.register(ITEM_BOLD_HUNTERS_MARK.setRegistryName("item_bold_hunters_mark"));
+        registry.register(ITEM_SAW_CLEAVER.setRegistryName("item_saw_cleaver"));
+        registry.register(ITEM_SAW_CLEAVER_TRANSFORMED.setRegistryName("item_saw_cleaver_transformed"));
+        registry.register(ITEM_HUNTER_AXE.setRegistryName("item_hunter_axe"));
+        registry.register(ITEM_HUNTER_AXE_TRANSFORMED.setRegistryName("item_hunter_axe_transformed"));
     }
 
     @SubscribeEvent
